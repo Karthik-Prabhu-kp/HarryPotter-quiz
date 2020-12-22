@@ -1,6 +1,6 @@
 var readlineSync = require("readline-sync")
 const chalk = require('chalk');
-var score = 0
+var userScore = 0
 
 console.log(chalk.cyan("welcome to the HarryPotter quiz !!"))
 var userName= readlineSync.question("What is your name ? ")
@@ -13,12 +13,12 @@ function play(question, answer) {
 
   if (userAnswer.toUpperCase() === answer.toUpperCase()) {
     console.log(chalk.green("you are right!"))
-    score++
+    userScore++
   }
   else {
     console.log(chalk.red("you are wrong."))
   }
-  console.log("score is: ", score);
+  console.log("score is: ", userScore);
   console.log(chalk.blue("----------------------"));
   console.log(chalk.blue("\n----------------------"));
 }
@@ -57,16 +57,30 @@ for (var i = 0; i < questions.length; i++) {
 var highScores = [
   {
     name: "karthik",
-    score: 5,
+    score: 2,
   },
   {
     name: "Tarun",
-    score: 4,
+    score: 1,
   }
 ]
 
 for (var j = 0; j < highScores.length; j++) {
   currentHighScore = highScores[j]
-  console.log(chalk.white.bgBlue("high score is " + currentHighScore.score))
-  console.log(chalk.white.bgBlue("Achieved by ", currentHighScore.name))
+  console.log(chalk.white.bgBlue("high score is " + currentHighScore.score));
+  console.log(chalk.white.bgBlue("Achieved by ", currentHighScore.name));
 }
+  if(userScore > currentHighScore.score){
+  console.log("you have beat one of the High scores !! send a screenshot to get featured")}
+
+
+
+
+
+// for (var k=0; k < highScores.length; k++){
+//  var displayHighScore = highScores[k]
+//   if(userScore > displayHighScores.score){
+//     console.log("you have beat the High score ! send a screenshot to get featured")
+// }
+// }
+
